@@ -15,6 +15,7 @@ int main()
     int sum = 0;
     for (int i = 0; i < m; i++)
     {
+        if(a[i]>=0) break;
         sum += a[i];
     }
     cout << abs(sum);
