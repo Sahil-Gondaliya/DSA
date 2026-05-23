@@ -3,16 +3,23 @@ using namespace std;
 
 int main()
 {
-    int t; cin >> t;
-    while(t-->0)
+    int t; 
+    cin >> t;
+
+    while(t--)
     {
-        int n, k; cin >> n >> k;
-        string s; cin >> s;
+        int n, k; 
+        cin >> n >> k;
+
+        string s; 
+        cin >> s;
 
         sort(s.begin(), s.end());
-        int count=1;
 
-        for(int i=1; i<n; i++)
+        int count = 1;
+        int odd = 0;
+
+        for(int i = 1; i < n; i++)
         {
             if(s[i-1] == s[i])
             {
@@ -20,22 +27,26 @@ int main()
             }
             else
             {
-                if (count % 2 != 0)
+                if(count % 2 != 0)
                 {
-                    k--;
-                } 
+                    odd++;
+                }
+
                 count = 1;
             }
         }
+
         // last group
         if(count % 2 != 0)
         {
-            k--;
+            odd++;
         }
 
-        cout << k << endl;
-        if (k >= 0 && k % 2 == 0) cout << "YES" << endl;
-        else cout << "NO" << endl;
+        if(odd <= k + 1)
+            cout << "YES" << endl;
+        else
+            cout << "NO" << endl;
     }
+
     return 0;
 }
